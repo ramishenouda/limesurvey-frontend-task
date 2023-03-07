@@ -25,7 +25,9 @@ export const Select = ({ name, label, defaultValue, required = false, onChange, 
         fullWidth={true}
       >
         {options.map((option) => (
-          <MenuItem value={option.value}>{option.label}</MenuItem>
+          <MenuItem key={option.label + Date.now()} value={option.value}>
+            {option.label}
+          </MenuItem>
         ))}
       </MatSelect>
     </>

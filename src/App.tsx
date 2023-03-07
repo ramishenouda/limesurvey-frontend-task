@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { SurveyEditor } from './components/SurveyEditor';
 import { Survey } from './shared/interfaces/Survey/Survey.interface';
 import { TextQuestion } from './shared/interfaces/Question/TextQuestion.interface';
+import { QuestoinType } from './shared/interfaces/Question/Question.interface';
 
 function App() {
   const survey: Survey = {
@@ -16,6 +17,19 @@ function App() {
         questions: [
           {
             settings: { id: 4, title: 'What is your full name?' },
+            type: QuestoinType.TEXT,
+            id: 1,
+          } as TextQuestion,
+        ],
+      },
+      {
+        id: 3,
+        title: 'Experience Info',
+        questions: [
+          {
+            settings: { id: 4, title: 'sad?' },
+            type: QuestoinType.TEXT,
+            id: 2,
           } as TextQuestion,
         ],
       },
@@ -25,7 +39,7 @@ function App() {
   useEffect(() => {}, []);
 
   return (
-    <div className="container p-4">
+    <div className="p-4">
       <SurveyEditor {...survey} />
     </div>
   );

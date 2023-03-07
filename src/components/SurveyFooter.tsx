@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { QuestoinType } from '../shared/interfaces/Question/Question.interface';
+
 import { Button } from '../shared/UiComponents/Button';
 import { Input } from '../shared/UiComponents/Input';
 import { Select } from '../shared/UiComponents/Select';
@@ -19,9 +21,17 @@ export const SurveyFooter = () => {
     },
   ];
 
-  const handleChange = (event: any) => {};
+  const [questionType, setQuestionType] = useState<QuestoinType>(QuestoinType.TEXT);
+
+  const handleChange = (event: any) => {
+    console.log(event);
+    const name = event.target.name;
+    const value = event.target.value;
+  };
+
   const addQuestion = () => {};
   const cancel = () => {};
+
   return (
     <div className="p-4 border border-solid">
       <div className="flex items-center justify-center gap-2">
@@ -47,7 +57,7 @@ export const SurveyFooter = () => {
       </div>
       <div className="mt-4 ml-auto flex items-center justify-end w-[200px] gap-4">
         <Button label="Add" onClick={addQuestion}></Button>
-        <Button label="Cancel" onClick={cancel}></Button>
+        <Button variant="outlined" label="Cancel" onClick={cancel}></Button>
       </div>
     </div>
   );

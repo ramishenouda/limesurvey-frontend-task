@@ -5,14 +5,9 @@ import { TextQuestion } from '../shared/interfaces/Question/TextQuestion.interfa
 export const SurveyQuestion = (question: Question) => {
   useEffect(() => {}, []);
 
-  return (
-    <div>
-      {question.settings.title}
-      {question.type === QuestoinType.TEXT && <RenderTextQuestion {...(question as TextQuestion)} />}
-    </div>
-  );
+  return <div>{question.type === QuestoinType.TEXT && <RenderTextQuestion {...(question as TextQuestion)} />}</div>;
 };
 
 const RenderTextQuestion = (question: TextQuestion) => {
-  return <></>;
+  return <>{question.settings.title}</>;
 };

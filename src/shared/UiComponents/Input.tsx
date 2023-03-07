@@ -2,6 +2,7 @@ import { TextField } from '@mui/material';
 
 type Props = {
   type?: 'text' | 'number' | 'email';
+  variant?: 'outlined' | 'filled' | 'standard';
   name: string;
   label?: string;
   required?: boolean;
@@ -10,7 +11,16 @@ type Props = {
   onChange: (event: any) => any;
 };
 
-export const Input = ({ type = 'text', name, label, placeholder, defaultValue, required = false, onChange }: Props) => {
+export const Input = ({
+  type = 'text',
+  variant = 'outlined',
+  name,
+  label,
+  placeholder,
+  defaultValue,
+  required = false,
+  onChange,
+}: Props) => {
   return (
     <TextField
       label={label}
@@ -21,6 +31,7 @@ export const Input = ({ type = 'text', name, label, placeholder, defaultValue, r
       onChange={onChange}
       defaultValue={defaultValue}
       fullWidth={true}
+      variant={variant}
     />
   );
 };
