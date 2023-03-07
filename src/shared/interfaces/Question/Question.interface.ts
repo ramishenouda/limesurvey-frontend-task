@@ -13,10 +13,6 @@ export interface QuestionAnswer {
 export interface QuestionSettings {
   id: number;
   required?: boolean;
-  isVisible?: {
-    questionId: number;
-    answerId: number;
-  };
 }
 
 export enum QuestionType {
