@@ -13,8 +13,8 @@ export const SurveyHeader = ({ surveyTitle }: Props) => {
   };
 
   return (
-    <header className="container">
-      <div className="mb-2 w-1/4">
+    <header className="container ">
+      <div className="w-1/4 mb-2">
         <Input
           label="Survey title"
           defaultValue={title}

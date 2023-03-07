@@ -1,8 +1,9 @@
-import { Question, QuestionAnswer, QuestionSettings } from './Question.interface';
+import { Question, QuestionAnswer, QuestionSettings, QuestoinType } from './Question.interface';
 
 export interface TextQuestion extends Question {
   answer: TextQuestionAnswer;
   settings: TextQuestionSettings;
+  type: QuestoinType.TEXT;
 }
 
 interface TextQuestionAnswer extends QuestionAnswer {

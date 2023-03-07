@@ -15,7 +15,7 @@ function App() {
         title: 'Personal info',
         questions: [
           {
-            settings: { id: 4, label: 'What is your full name?' },
+            settings: { id: 4, title: 'What is your full name?' },
           } as TextQuestion,
         ],
       },

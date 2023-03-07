@@ -6,7 +6,7 @@ type Props = {
   label?: string;
   placeholder?: string;
   required?: boolean;
-  onChange: () => void;
+  onChange: (event: any) => void;
 };
 
 export const Textarea = ({ rows, name, label, placeholder, required = false, onChange }: Props) => {

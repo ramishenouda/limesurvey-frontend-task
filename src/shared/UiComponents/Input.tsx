@@ -1,17 +1,16 @@
 import { TextField } from '@mui/material';
-import { ChangeEvent } from 'react';
 
 type Props = {
-  type: 'text' | 'number' | 'email';
+  type?: 'text' | 'number' | 'email';
   name: string;
   label?: string;
   required?: boolean;
   placeholder?: string;
   defaultValue?: string;
-  onChange: (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => any;
+  onChange: (event: any) => any;
 };
 
-export const Input = ({ type, name, label, placeholder, defaultValue, required = false, onChange }: Props) => {
+export const Input = ({ type = 'text', name, label, placeholder, defaultValue, required = false, onChange }: Props) => {
   return (
     <TextField
       label={label}
