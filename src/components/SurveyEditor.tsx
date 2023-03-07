@@ -1,9 +1,10 @@
 import { Survey } from '../shared/interfaces/Survey/Survey.interface';
+import { SurveyHeader } from './SurveyHeader';
 
 export const SurveyEditor = (survey: Survey) => {
   return (
     <div>
-      <h1>{survey?.title}</h1>
+      <SurveyHeader surveyTitle={survey.title} />
       {survey.questionGroups?.map((questionGroup) => {
         return (
           <>

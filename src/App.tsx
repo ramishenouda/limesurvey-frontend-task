@@ -24,7 +24,11 @@ function App() {
 
   useEffect(() => {}, []);
 
-  return <SurveyEditor {...survey} />;
+  return (
+    <div className="container p-4">
+      <SurveyEditor {...survey} />
+    </div>
+  );
 }
 
 export default App;
