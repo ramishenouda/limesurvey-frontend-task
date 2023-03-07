@@ -1,6 +1,7 @@
 import { Question, QuestionAnswer, QuestionSettings } from './Question.interface';
 
 export interface RadioQuestion extends Question {
+  answerOptions: Array<RadioQuestionAnswer>;
   answer: RadioQuestionAnswer;
   settings: RadioQuestionSettings;
 }

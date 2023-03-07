@@ -46,10 +46,10 @@ export const SurveyEditor = (_survey: Survey) => {
           {questionGroup ? (
             questionGroup.questions.map((question) => {
               return (
-                <>
+                <div key={question.id + question.title}>
                   <h1 className="mb-4 text-3xl">{questionGroup.title}</h1>
-                  <SurveyQuestion key={question.id + question.settings.title} {...question} />
-                </>
+                  <SurveyQuestion {...question} />
+                </div>
               );
             })
           ) : (

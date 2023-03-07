@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { SurveyEditor } from './components/SurveyEditor';
 import { Survey } from './shared/interfaces/Survey/Survey.interface';
 import { TextQuestion } from './shared/interfaces/Question/TextQuestion.interface';
-import { QuestoinType } from './shared/interfaces/Question/Question.interface';
+import { QuestionType } from './shared/interfaces/Question/Question.interface';
 
 function App() {
   const survey: Survey = {
@@ -16,8 +16,9 @@ function App() {
         title: 'Personal info',
         questions: [
           {
-            settings: { id: 4, title: 'What is your full name?' },
-            type: QuestoinType.TEXT,
+            title: 'What is your full name?',
+            settings: { id: 4 },
+            type: QuestionType.TEXT,
             id: 1,
           } as TextQuestion,
         ],
@@ -27,8 +28,9 @@ function App() {
         title: 'Experience Info',
         questions: [
           {
-            settings: { id: 4, title: 'sad?' },
-            type: QuestoinType.TEXT,
+            title: 'sad?',
+            settings: { id: 4 },
+            type: QuestionType.TEXT,
             id: 2,
           } as TextQuestion,
         ],

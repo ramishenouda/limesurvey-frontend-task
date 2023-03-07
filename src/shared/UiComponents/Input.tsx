@@ -3,6 +3,7 @@ import { TextField } from '@mui/material';
 type Props = {
   type?: 'text' | 'number' | 'email';
   variant?: 'outlined' | 'filled' | 'standard';
+  maxNumericValue?: number;
   name: string;
   label?: string;
   required?: boolean;
@@ -19,6 +20,7 @@ export const Input = ({
   placeholder,
   defaultValue,
   required = false,
+  maxNumericValue,
   onChange,
 }: Props) => {
   return (
@@ -32,6 +34,11 @@ export const Input = ({
       defaultValue={defaultValue}
       fullWidth={true}
       variant={variant}
+      InputProps={{
+        inputProps: {
+          max: maxNumericValue,
+        },
+      }}
     />
   );
 };

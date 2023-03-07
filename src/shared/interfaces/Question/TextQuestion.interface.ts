@@ -1,9 +1,9 @@
-import { Question, QuestionAnswer, QuestionSettings, QuestoinType } from './Question.interface';
+import { Question, QuestionAnswer, QuestionSettings, QuestionType } from './Question.interface';
 
 export interface TextQuestion extends Question {
   answer: TextQuestionAnswer;
   settings: TextQuestionSettings;
-  type: QuestoinType.TEXT;
+  type: QuestionType.TEXT;
 }
 
 interface TextQuestionAnswer extends QuestionAnswer {
@@ -11,6 +11,5 @@ interface TextQuestionAnswer extends QuestionAnswer {
 }
 
 interface TextQuestionSettings extends QuestionSettings {
-  minLength?: number;
   maxLength?: number;
 }

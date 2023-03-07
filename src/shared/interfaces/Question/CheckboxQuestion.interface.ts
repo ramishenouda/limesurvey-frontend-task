@@ -1,6 +1,7 @@
 import { Question, QuestionAnswer, QuestionSettings } from './Question.interface';
 
 export interface CheckboxQuestion extends Question {
+  answerOptions: Array<CheckboxQuestionAnswer>;
   answer: Array<CheckboxQuestionAnswer>;
   settings: CheckboxQuestionSettings;
 }

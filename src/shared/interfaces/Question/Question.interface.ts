@@ -1,8 +1,9 @@
 export interface Question {
   id: number;
+  title: string;
   answer?: QuestionAnswer | Array<QuestionAnswer>;
   settings: QuestionSettings;
-  type: QuestoinType;
+  type: QuestionType;
 }
 
 export interface QuestionAnswer {
@@ -11,7 +12,6 @@ export interface QuestionAnswer {
 
 export interface QuestionSettings {
   id: number;
-  title: string;
   required?: boolean;
   isVisible?: {
     questionId: number;
@@ -19,7 +19,7 @@ export interface QuestionSettings {
   };
 }
 
-export enum QuestoinType {
+export enum QuestionType {
   TEXT = 'Text',
   RADIO = 'Radio',
   CHECKBOX = 'Checkbox',

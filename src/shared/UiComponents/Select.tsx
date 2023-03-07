@@ -1,10 +1,10 @@
-import { InputLabel, MenuItem, Select as MatSelect } from '@mui/material';
+import { MenuItem, Select as MatSelect } from '@mui/material';
 
 type Props = {
   name: string;
   label?: string;
   required?: boolean;
-  defaultValue?: any;
+  value?: any;
   options: Array<{
     label: string;
     value: any;
@@ -12,14 +12,13 @@ type Props = {
   onChange: (event: any) => any;
 };
 
-export const Select = ({ name, label, defaultValue, required = false, onChange, options }: Props) => {
+export const Select = ({ name, label, value, required = false, onChange, options }: Props) => {
   return (
     <>
-      <InputLabel id={name + label}>{label}</InputLabel>
       <MatSelect
         labelId={name + label}
         name={name}
-        value={defaultValue}
+        value={value}
         required={required}
         onChange={onChange}
         fullWidth={true}
