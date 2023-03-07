@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Question } from '../shared/interfaces/Question/Question.interface';
 import { QuestionGroup } from '../shared/interfaces/Question/QuestionGroup.interface';
 import { Survey } from '../shared/interfaces/Survey/Survey.interface';
 import { SurveyFooter } from './SurveyFooter';
@@ -6,19 +7,31 @@ import { SurveyHeader } from './SurveyHeader';
 import { SurveyQuestion } from './SurveyQuestion';
 
 export const SurveyEditor = (_survey: Survey) => {
-  const [questionGroup, setQuestionGroup] = useState<QuestionGroup>();
+  const [questionGroup, setQuestionGroup] = useState<QuestionGroup>({ questions: [] } as any);
   const [survey, setSurvey] = useState<Survey>(_survey);
 
   useEffect(() => {
-    setQuestionGroup(survey.questionGroups![0] ?? null);
+    if (survey.questionGroups![0]) {
+      setQuestionGroup(survey.questionGroups![0]);
+    }
   }, [survey]);
 
   const handleChange = (event: any) => {
     const name = event.target.name;
     const value = event.target.value;
 
-    console.log({ name }, { value });
     setSurvey({ ...survey, [name]: value });
+  };
+
+  const addQuestion = (question: Question) => {
+    if (!questionGroup?.questions) {
+      questionGroup.questions = [];
+    }
+
+    question.id = questionGroup.questions.length;
+    questionGroup.questions.push(question);
+
+    setQuestionGroup({ ...questionGroup });
   };
 
   return (
@@ -44,18 +57,20 @@ export const SurveyEditor = (_survey: Survey) => {
         </div>
         <div className="flex-1 p-4 border">
           {questionGroup ? (
-            questionGroup.questions.map((question) => {
-              return (
-                <div key={question.id + question.title}>
-                  <h1 className="mb-4 text-3xl">{questionGroup.title}</h1>
-                  <SurveyQuestion {...question} />
-                </div>
-              );
-            })
+            <>
+              <h1 className="mb-4 text-3xl">{questionGroup.title}</h1>
+              {questionGroup.questions.map((question) => {
+                return (
+                  <div key={question.id + question.title + questionGroup.title}>
+                    <SurveyQuestion {...question} />
+                  </div>
+                );
+              })}
+            </>
           ) : (
             <></>
           )}
-          <SurveyFooter />
+          <SurveyFooter addQuestion={addQuestion} />
         </div>
       </div>
     </div>

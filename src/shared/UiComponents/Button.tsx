@@ -4,12 +4,13 @@ type Props = {
   variant?: 'text' | 'contained' | 'outlined';
   label: string;
   size?: 'small' | 'medium' | 'large';
-  onClick: (event: any) => any;
+  type?: 'submit' | 'button' | 'reset';
+  onClick?: (event: any) => any;
 };
 
-export const Button = ({ variant = 'contained', size = 'medium', label, onClick }: Props) => {
+export const Button = ({ variant = 'contained', type = 'button', size = 'medium', label, onClick }: Props) => {
   return (
-    <MatButton size={size} fullWidth={true} variant={variant} onClick={onClick}>
+    <MatButton type={type} className="h-full" size={size} fullWidth={true} variant={variant} onClick={onClick}>
       {label}
     </MatButton>
   );

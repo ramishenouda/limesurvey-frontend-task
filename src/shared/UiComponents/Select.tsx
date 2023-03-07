@@ -24,7 +24,7 @@ export const Select = ({ name, label, value, required = false, onChange, options
         fullWidth={true}
       >
         {options.map((option) => (
-          <MenuItem key={option.label + Date.now()} value={option.value}>
+          <MenuItem key={option.label + 'menuItem' + option.value} value={option.value}>
             {option.label}
           </MenuItem>
         ))}

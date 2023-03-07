@@ -4,6 +4,7 @@ import { SurveyEditor } from './components/SurveyEditor';
 import { Survey } from './shared/interfaces/Survey/Survey.interface';
 import { TextQuestion } from './shared/interfaces/Question/TextQuestion.interface';
 import { QuestionType } from './shared/interfaces/Question/Question.interface';
+import { CheckboxQuestion } from './shared/interfaces/Question/CheckboxQuestion.interface';
 
 function App() {
   const survey: Survey = {
@@ -30,9 +31,15 @@ function App() {
           {
             title: 'sad?',
             settings: { id: 4 },
-            type: QuestionType.TEXT,
+            type: QuestionType.CHECKBOX,
+            answerOptions: [
+              {
+                id: 1,
+                value: 'omk 7lwa',
+              },
+            ],
             id: 2,
-          } as TextQuestion,
+          } as CheckboxQuestion,
         ],
       },
     ],
