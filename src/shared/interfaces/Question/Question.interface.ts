@@ -1,6 +1,6 @@
 export interface Question {
   id: number;
-  answer?: QuestionAnswer;
+  answer?: QuestionAnswer | Array<QuestionAnswer>;
   settings: QuestionSettings;
 }
 
