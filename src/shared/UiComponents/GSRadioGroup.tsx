@@ -11,15 +11,9 @@ export const GSRadioGroup = ({ name, options, onChange }: Props) => {
     <RadioGroup name={name}>
       {options?.map((option, index) => {
         return (
-          <>
-            <FormControlLabel
-              key={option.label + index}
-              value={option.value}
-              control={<Radio />}
-              label={option.label}
-              onChange={onChange}
-            />
-          </>
+          <div key={option.label + index + 'radiogroup'}>
+            <FormControlLabel value={option.value} control={<Radio />} label={option.label} onChange={onChange} />
+          </div>
         );
       })}
     </RadioGroup>

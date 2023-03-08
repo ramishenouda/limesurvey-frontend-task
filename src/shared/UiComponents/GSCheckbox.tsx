@@ -13,9 +13,9 @@ type Props = {
 export const GSCheckbox = ({ name, onChange, options, className }: Props) => {
   return (
     <FormGroup>
-      {options.map((option) => {
+      {options.map((option, index) => {
         return (
-          <>
+          <div key={option.label + index + 'checkbox'}>
             <FormControlLabel
               control={<Checkbox size="medium" />}
               label={option.label}
@@ -23,7 +23,7 @@ export const GSCheckbox = ({ name, onChange, options, className }: Props) => {
               name={name}
               value={option.value}
             />
-          </>
+          </div>
         );
       })}
     </FormGroup>

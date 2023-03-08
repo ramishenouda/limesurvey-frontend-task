@@ -8,6 +8,7 @@ export interface Question {
 
 export interface QuestionAnswer {
   id: number;
+  value: string;
 }
 
 export interface QuestionSettings {

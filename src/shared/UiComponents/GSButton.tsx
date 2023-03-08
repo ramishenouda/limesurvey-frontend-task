@@ -1,4 +1,4 @@
-import { Button as MatButton } from '@mui/material';
+import { Button } from '@mui/material';
 
 type Props = {
   variant?: 'text' | 'contained' | 'outlined';
@@ -10,8 +10,8 @@ type Props = {
 
 export const GSButton = ({ variant = 'contained', type = 'button', size = 'medium', label, onClick }: Props) => {
   return (
-    <MatButton type={type} className="h-full" size={size} fullWidth={true} variant={variant} onClick={onClick}>
+    <Button type={type} className="h-full" size={size} fullWidth={true} variant={variant} onClick={onClick}>
       {label}
-    </MatButton>
+    </Button>
   );
 };
