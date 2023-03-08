@@ -3,26 +3,30 @@ import { useEffect, useState } from 'react';
 import { SurveyEditor } from './components/SurveyEditor';
 import { Survey } from './shared/interfaces/Survey/Survey.interface';
 import { getAllSurveys } from './services/survey.service';
+import { SurveyDashboard } from './components/SurveyDashboard';
 
 function App() {
   const [survey, setSurvey] = useState<Survey>();
+  const [userSurveys, setUserSurveys] = useState<Array<Survey>>();
 
   useEffect(() => {
     getAllSurveys()
       .then((response) => response.json())
-      .then((data) => {
-        const firstSurvey = data[0];
-        setSurvey(firstSurvey);
+      .then((surveys) => {
+        setUserSurveys(surveys);
       });
   }, []);
 
   return (
-    <div className="p-4">
-      {survey ? (
-        <SurveyEditor {...survey} />
-      ) : (
-        <div className="flex items-center justify-center h-[90vh] text-4xl">Loading surveys...</div>
-      )}
+    <div className="mb-2">
+      <div className="w-full p-4 text-4xl bg-blue-400 navbar">
+        <span className="p-2 bg-blue-300 rounded-md">GeniusSurvey</span>
+      </div>
+      {!userSurveys && <p className="mt-4 text-4xl text-center">Loading...</p>}
+      <div className="p-4">
+        {userSurveys && !survey && <SurveyDashboard setSurvey={setSurvey} surveys={userSurveys} />}
+      </div>
+      <div>{survey?.id && <SurveyEditor survey={{ ...survey }} setSurvey={setSurvey} />}</div>
     </div>
   );
 }

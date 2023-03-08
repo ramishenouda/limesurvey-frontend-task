@@ -77,6 +77,7 @@ export const SurveyFooter = ({ addQuestion, cancelQuestion }: Props) => {
 
   return (
     <section className="max-w-[300px] sm:max-w-[100%]">
+      <hr />
       <h1 className="mt-12 mb-2 text-2xl">Add Question</h1>
       <form onSubmit={sendQuestionToParent} className="p-4 border border-solid">
         <div className="flex flex-col gap-2 sm:items-center sm:justify-center sm:flex-row">
@@ -103,7 +104,6 @@ export const SurveyFooter = ({ addQuestion, cancelQuestion }: Props) => {
           </div>
         </div>
         <div className="mt-3">
-          <hr />
           <h1 className="my-4 text-xl">Question Settings</h1>
           <div className="mb-4">
             Required: <GSSwitch name="required" isChecked={question.settings?.required} onChange={handleChange} />

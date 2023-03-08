@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "Hey!",
+    "title": "Frontend Developer!",
     "description": "How are you doing?",
     "questionGroups": [
       {
@@ -74,6 +74,107 @@
           {
             "id": 3,
             "title": "Do you know react?",
+            "type": "Radio",
+            "settings": {
+              "required": true
+            },
+            "answerOptions": [
+              { "id": 1, "value": "No" },
+              { "id": 2, "value": "Somehow" },
+              { "id": 3, "value": "Expert" }
+            ]
+          },
+          {
+            "id": 3,
+            "title": "Can you relocate to germany?",
+            "type": "Checkbox",
+            "settings": {
+              "required": true
+            },
+            "answerOptions": [
+              { "id": 1, "value": "Yes I'm willing to relocate." },
+              { "id": 2, "value": "No, I want to work remotely." }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Backend Developer!",
+    "description": "How are you doing?",
+    "questionGroups": [
+      {
+        "id": 1,
+        "title": "Personal info",
+        "questions": [
+          {
+            "id": 1,
+            "title": "What is your full name",
+            "type": "Text",
+            "settings": {
+              "required": true
+            }
+          },
+          {
+            "id": 2,
+            "title": "What is your email address",
+            "type": "Text",
+            "settings": {
+              "required": true
+            }
+          },
+          {
+            "id": 3,
+            "title": "What is your country of residence",
+            "type": "Radio",
+            "settings": {
+              "required": true
+            },
+            "answerOptions": [
+              { "id": 1, "value": "Germany" },
+              { "id": 2, "value": "Egypt" },
+              { "id": 3, "value": "Other" }
+            ]
+          },
+          {
+            "id": 3,
+            "title": "Can you speak English and German?",
+            "type": "Checkbox",
+            "settings": {
+              "required": true
+            },
+            "answerOptions": [
+              { "id": 1, "value": "I can speak English." },
+              { "id": 2, "value": "I can speak German." }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Experience Info",
+        "questions": [
+          {
+            "id": 1,
+            "title": "Current or previous role title",
+            "type": "Text",
+            "settings": {
+              "required": true
+            }
+          },
+          {
+            "id": 2,
+            "title": "Current or previous employer's name",
+            "type": "Text",
+            "settings": {
+              "required": true
+            }
+          },
+          {
+            "id": 3,
+            "title": "Do you know PHP?",
             "type": "Radio",
             "settings": {
               "required": true

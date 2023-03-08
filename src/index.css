@@ -8,9 +8,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: rgb(245, 245, 245);
+  background-color: #f8f8f8;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+hr {
+  background-color: white;
+  border: none;
+  height: 2px;
 }
