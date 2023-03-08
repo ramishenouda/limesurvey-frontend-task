@@ -20,11 +20,13 @@ export const SurveyFooter = ({ addQuestion }: Props) => {
     const value = event.target.value;
     const checked = event.target.checked;
 
-    if (name === 'type') {
-      setQuestionType(value);
-    } else if (name === 'required') {
+    if (name === 'required') {
       setQuestion({ ...question, [name]: checked });
       return;
+    }
+
+    if (name === 'type') {
+      setQuestionType(value);
     }
 
     setQuestion({ ...question, [name]: value });
@@ -36,13 +38,22 @@ export const SurveyFooter = ({ addQuestion }: Props) => {
       _question.answerOptions = [];
     }
 
-    _question.answerOptions.push({ value: '', id: _question.answerOptions.length });
+    const lastQuestionOption = _question.answerOptions[_question.answerOptions.length - 1];
+    _question.answerOptions.push({ value: '', id: lastQuestionOption?.id + 1 || 0 });
 
     setQuestion({ ..._question });
   };
 
   const handleOptionChange = (event: any) => {};
-  const removeOption = (answerOptionId: number) => {};
+  const removeOption = (answerOptionId: number) => {
+    const _question = question as CheckboxQuestion;
+    if (!_question.answerOptions) {
+      return;
+    }
+
+    _question.answerOptions = _question.answerOptions.filter((answerOption) => answerOption.id !== answerOptionId);
+    setQuestion({ ..._question });
+  };
 
   const sendQuestionToParent = (event: any) => {
     event.preventDefault();
@@ -117,12 +128,11 @@ export const SurveyFooter = ({ addQuestion }: Props) => {
             <>
               {(question as CheckboxQuestion).answerOptions?.length ? (
                 <>
-                  {(question as CheckboxQuestion).answerOptions.map((answerOption) => {
+                  {(question as CheckboxQuestion).answerOptions.map((answerOption, index) => {
                     return (
-                      <div className="flex gap-2 my-2">
+                      <div key={'surveyFooterAnswerOption' + index} className="flex gap-2 my-2">
                         <div className="w-full">
                           <Input
-                            key={'answerOption' + answerOption.id}
                             name={answerOption.id.toString()}
                             onChange={handleOptionChange}
                             placeholder="Option text"
