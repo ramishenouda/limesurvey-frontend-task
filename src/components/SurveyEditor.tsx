@@ -46,7 +46,7 @@ export const SurveyEditor = (_survey: Survey) => {
       </div>
       <div className="flex gap-4">
         <div
-          className={`text-lg text-center border w-full sm:w-[300px] max-h-[80vh] overflow-y-auto ${
+          className={`text-lg text-center border w-full sm:w-[300px]  ${
             showGroups ? 'block sm:block' : 'hidden sm:block'
           }`}
         >
@@ -66,11 +66,7 @@ export const SurveyEditor = (_survey: Survey) => {
             );
           })}
         </div>
-        <div
-          className={`flex-1 p-4 border max-h-[80vh] overflow-y-auto ${
-            !showGroups ? 'block sm:block' : 'hidden sm:block'
-          }`}
-        >
+        <div className={`flex-1 p-4 border  ${!showGroups ? 'block sm:block' : 'hidden sm:block'}`}>
           {questionGroup ? (
             <>
               <h1 className="mb-4 text-3xl">{questionGroup.title}</h1>

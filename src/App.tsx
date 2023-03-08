@@ -13,7 +13,7 @@ function App() {
     description: 'How are you doing?',
     questionGroups: [
       {
-        id: 2,
+        id: 1,
         title: 'Personal info',
         questions: [
           {
@@ -55,6 +55,53 @@ function App() {
             answerOptions: [
               { id: 1, value: 'I can speak English.' },
               { id: 2, value: 'I can speak German.' },
+            ],
+          } as CheckboxQuestion,
+        ],
+      },
+      {
+        id: 2,
+        title: 'Experience Info',
+        questions: [
+          {
+            id: 1,
+            title: 'Current or previous role title',
+            type: QuestionType.TEXT,
+            settings: {
+              required: true,
+            },
+          },
+          {
+            id: 2,
+            title: "Current or previous employer's name",
+            type: QuestionType.TEXT,
+            settings: {
+              required: true,
+            },
+          },
+          {
+            id: 3,
+            title: 'Do you know react?',
+            type: QuestionType.RADIO,
+            settings: {
+              required: true,
+            },
+            answerOptions: [
+              { id: 1, value: 'No' },
+              { id: 2, value: 'Somehow' },
+              { id: 3, value: 'Expert' },
+            ],
+          } as RadioQuestion,
+          {
+            id: 3,
+            title: 'Can you relocate to germany?',
+            type: QuestionType.CHECKBOX,
+            settings: {
+              required: true,
+            },
+            answerOptions: [
+              { id: 1, value: "Yes I'm willing to relocate." },
+              { id: 2, value: 'No, I want to work remotely.' },
             ],
           } as CheckboxQuestion,
         ],
