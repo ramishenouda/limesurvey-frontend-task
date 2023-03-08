@@ -2,7 +2,6 @@ import './App.css';
 import { useEffect } from 'react';
 import { SurveyEditor } from './components/SurveyEditor';
 import { Survey } from './shared/interfaces/Survey/Survey.interface';
-import { TextQuestion } from './shared/interfaces/Question/TextQuestion.interface';
 import { QuestionType } from './shared/interfaces/Question/Question.interface';
 import { CheckboxQuestion } from './shared/interfaces/Question/CheckboxQuestion.interface';
 
@@ -15,14 +14,7 @@ function App() {
       {
         id: 2,
         title: 'Personal info',
-        questions: [
-          {
-            title: 'What is your full name?',
-            settings: { id: 4 },
-            type: QuestionType.TEXT,
-            id: 1,
-          } as TextQuestion,
-        ],
+        questions: [],
       },
       {
         id: 3,
@@ -30,7 +22,6 @@ function App() {
         questions: [
           {
             title: 'sad?',
-            settings: { id: 4 },
             type: QuestionType.CHECKBOX,
             answerOptions: [
               {

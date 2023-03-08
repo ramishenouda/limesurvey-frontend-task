@@ -2,7 +2,7 @@ import { Question, QuestionAnswer, QuestionSettings, QuestionType } from './Ques
 
 export interface TextQuestion extends Question {
   answer: TextQuestionAnswer;
-  settings: TextQuestionSettings;
+  settings?: TextQuestionSettings;
   type: QuestionType.TEXT;
 }
 

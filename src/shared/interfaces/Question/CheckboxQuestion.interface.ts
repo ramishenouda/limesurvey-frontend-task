@@ -6,7 +6,7 @@ export interface CheckboxQuestion extends Question {
     value: string;
     id: number;
   }>;
-  settings: QuestionSettings;
+  settings?: QuestionSettings;
 }
 
 interface CheckboxQuestionAnswer extends QuestionAnswer {

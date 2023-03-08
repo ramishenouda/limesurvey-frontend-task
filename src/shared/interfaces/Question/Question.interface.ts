@@ -2,7 +2,7 @@ export interface Question {
   id: number;
   title: string;
   answer?: QuestionAnswer | Array<QuestionAnswer>;
-  settings: QuestionSettings;
+  settings?: QuestionSettings;
   type: QuestionType;
 }
 
@@ -11,7 +11,6 @@ export interface QuestionAnswer {
 }
 
 export interface QuestionSettings {
-  id: number;
   required?: boolean;
 }
 

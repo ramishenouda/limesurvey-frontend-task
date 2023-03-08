@@ -8,6 +8,7 @@ type Props = {
   label?: string;
   required?: boolean;
   placeholder?: string;
+  value?: any;
   defaultValue?: string;
   onChange: (event: any) => any;
 };
@@ -15,6 +16,7 @@ type Props = {
 export const Input = ({
   type = 'text',
   variant = 'outlined',
+  value,
   name,
   label,
   placeholder,
@@ -34,6 +36,7 @@ export const Input = ({
       defaultValue={defaultValue}
       fullWidth={true}
       variant={variant}
+      value={value}
       InputProps={{
         inputProps: {
           max: maxNumericValue,

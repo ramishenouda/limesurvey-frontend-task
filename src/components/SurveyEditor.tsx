@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Question } from '../shared/interfaces/Question/Question.interface';
 import { QuestionGroup } from '../shared/interfaces/Question/QuestionGroup.interface';
 import { Survey } from '../shared/interfaces/Survey/Survey.interface';
+import { Button } from '../shared/UiComponents/Button';
 import { SurveyFooter } from './SurveyFooter';
 import { SurveyHeader } from './SurveyHeader';
 import { SurveyQuestion } from './SurveyQuestion';
@@ -9,11 +10,14 @@ import { SurveyQuestion } from './SurveyQuestion';
 export const SurveyEditor = (_survey: Survey) => {
   const [questionGroup, setQuestionGroup] = useState<QuestionGroup>({ questions: [] } as any);
   const [survey, setSurvey] = useState<Survey>(_survey);
+  const [addingQuestion, setAddingQuestion] = useState(false);
 
   useEffect(() => {
     if (survey.questionGroups![0]) {
       setQuestionGroup(survey.questionGroups![0]);
     }
+
+    console.log({ questionGroup });
   }, [survey]);
 
   const handleChange = (event: any) => {
@@ -39,7 +43,7 @@ export const SurveyEditor = (_survey: Survey) => {
       <SurveyHeader onChange={handleChange} surveyTitle={survey.title} />
       <div className="flex gap-4">
         <div className="text-lg text-center border min-w-[300px]">
-          <h1 className="min-h-[60px] text-2xl flex justify-center items-center">Question Groups</h1>
+          <h1 className="min-h-[64px] text-2xl flex justify-center items-center">Question Groups</h1>
           <hr />
           {survey.questionGroups?.map((_questionGroup) => {
             return (
@@ -61,7 +65,7 @@ export const SurveyEditor = (_survey: Survey) => {
               <h1 className="mb-4 text-3xl">{questionGroup.title}</h1>
               {questionGroup.questions.map((question) => {
                 return (
-                  <div key={question.id + question.title + questionGroup.title}>
+                  <div key={'surveyQuestion' + question.id + question.title + questionGroup.title}>
                     <SurveyQuestion {...question} />
                   </div>
                 );
@@ -70,7 +74,18 @@ export const SurveyEditor = (_survey: Survey) => {
           ) : (
             <></>
           )}
-          <SurveyFooter addQuestion={addQuestion} />
+          {addingQuestion ? (
+            <SurveyFooter cancelQuestion={() => setAddingQuestion(false)} addQuestion={addQuestion} />
+          ) : (
+            <div className="w-56 mt-10 h-14">
+              <Button
+                size="large"
+                variant="outlined"
+                onClick={() => setAddingQuestion(true)}
+                label={`Add ${questionGroup.questions.length ? 'another' : ''} question`}
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>

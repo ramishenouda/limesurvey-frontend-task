@@ -6,7 +6,7 @@ export interface RadioQuestion extends Question {
     value: string;
     id: number;
   }>;
-  settings: QuestionSettings;
+  settings?: QuestionSettings;
 }
 
 interface RadioQuestionAnswer extends QuestionAnswer {
