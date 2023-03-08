@@ -114,11 +114,7 @@ export const SurveyFooter = ({ addQuestion, cancelQuestion }: Props) => {
           {question.type !== QuestionType.TEXT && (
             <>
               <hr />
-              <RadioAndCheckboxFooter
-                setError={setError}
-                setQuestion={setQuestion}
-                question={{ ...question } as CheckboxQuestion}
-              />
+              <RadioAndCheckboxFooter setQuestion={setQuestion} question={{ ...question } as CheckboxQuestion} />
             </>
           )}
         </div>
@@ -132,12 +128,12 @@ export const SurveyFooter = ({ addQuestion, cancelQuestion }: Props) => {
   );
 };
 
-type TextQuestionProps = {
+type QuestionRenderProps<T> = {
   setQuestion: any;
-  question: TextQuestion;
+  question: T;
 };
 
-const TextQuestionFooter = ({ setQuestion, question }: TextQuestionProps) => {
+const TextQuestionFooter = ({ setQuestion, question }: QuestionRenderProps<TextQuestion>) => {
   const handleChange = (event: any) => {
     const value = event.target.value;
 
@@ -167,13 +163,7 @@ const TextQuestionFooter = ({ setQuestion, question }: TextQuestionProps) => {
   );
 };
 
-type RadioAndCheckQuestionProps = {
-  question: CheckboxQuestion;
-  setQuestion: any;
-  setError: any;
-};
-
-const RadioAndCheckboxFooter = ({ question, setQuestion, setError }: RadioAndCheckQuestionProps) => {
+const RadioAndCheckboxFooter = ({ question, setQuestion }: QuestionRenderProps<CheckboxQuestion>) => {
   const addOption = () => {
     const _question = question as CheckboxQuestion;
     if (!_question.answerOptions) {
@@ -183,7 +173,6 @@ const RadioAndCheckboxFooter = ({ question, setQuestion, setError }: RadioAndChe
     const lastQuestionOption = _question.answerOptions[_question.answerOptions.length - 1];
     _question.answerOptions.push({ value: '', id: lastQuestionOption?.id + 1 || 0 });
 
-    setError('');
     setQuestion({ ..._question });
   };
 

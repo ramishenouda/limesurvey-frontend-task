@@ -84,7 +84,7 @@ export const SurveyEditor = (_survey: Survey) => {
           {addingQuestion ? (
             <SurveyFooter cancelQuestion={() => setAddingQuestion(false)} addQuestion={addQuestion} />
           ) : (
-            <div className="w-56 mt-10 h-14">
+            <div className="w-64 mt-10 h-14">
               <GSButton
                 size="large"
                 variant="outlined"
