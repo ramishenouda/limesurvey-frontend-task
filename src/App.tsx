@@ -24,9 +24,11 @@ function App() {
       </div>
       {!userSurveys && <p className="mt-4 text-4xl text-center">Loading...</p>}
       <div className="p-4">
-        {userSurveys && !survey && <SurveyDashboard setSurvey={setSurvey} surveys={userSurveys} />}
+        {userSurveys && !survey && (
+          <SurveyDashboard setUserSurveys={setUserSurveys} setSurvey={setSurvey} surveys={userSurveys} />
+        )}
       </div>
-      <div>{survey?.id && <SurveyEditor survey={{ ...survey }} setSurvey={setSurvey} />}</div>
+      <div>{survey && <SurveyEditor survey={{ ...survey }} setSurvey={setSurvey} />}</div>
     </div>
   );
 }
