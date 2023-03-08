@@ -9,7 +9,7 @@ type Props = {
     label: string;
     value: any;
   }>;
-  onChange: (event: any) => any;
+  onChange?: (event: any) => any;
 };
 
 export const GSSelect = ({ name, label, value, required = false, onChange, options }: Props) => {

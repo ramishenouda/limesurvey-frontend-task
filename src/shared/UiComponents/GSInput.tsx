@@ -10,7 +10,7 @@ type Props = {
   placeholder?: string;
   value?: any;
   defaultValue?: string;
-  onChange: (event: any) => any;
+  onChange?: (event: any) => any;
 };
 
 export const GSInput = ({

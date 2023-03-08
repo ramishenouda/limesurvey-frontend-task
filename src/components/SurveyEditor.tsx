@@ -40,7 +40,7 @@ export const SurveyEditor = (_survey: Survey) => {
     <div className="container p-2 mx-auto border-solid">
       <SurveyHeader onChange={handleChange} surveyTitle={survey.title} />
       <div className="flex gap-4">
-        <div className="text-lg text-center border min-w-[300px]">
+        <div className="text-lg text-center border min-w-[300px] max-h-[80vh] overflow-y-auto">
           <h1 className="min-h-[64px] text-2xl flex justify-center items-center">Question Groups</h1>
           <hr />
           {survey.questionGroups?.map((_questionGroup) => {
@@ -57,7 +57,7 @@ export const SurveyEditor = (_survey: Survey) => {
             );
           })}
         </div>
-        <div className="flex-1 p-4 border">
+        <div className="flex-1 p-4 border max-h-[vh] overflow-y-auto">
           {questionGroup ? (
             <>
               <h1 className="mb-4 text-3xl">{questionGroup.title}</h1>

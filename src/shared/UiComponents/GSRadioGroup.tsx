@@ -3,7 +3,7 @@ import { FormControlLabel, Radio, RadioGroup } from '@mui/material';
 type Props = {
   name?: string;
   options?: Array<{ label: string; value: any }>;
-  onChange: (event: any) => any;
+  onChange?: (event: any) => any;
 };
 
 export const GSRadioGroup = ({ name, options, onChange }: Props) => {
