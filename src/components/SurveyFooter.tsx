@@ -76,10 +76,10 @@ export const SurveyFooter = ({ addQuestion, cancelQuestion }: Props) => {
   ];
 
   return (
-    <section>
+    <section className="max-w-[300px] sm:max-w-[100%]">
       <h1 className="mt-12 mb-2 text-2xl">Add Question</h1>
       <form onSubmit={sendQuestionToParent} className="p-4 border border-solid">
-        <div className="flex items-center justify-center gap-2">
+        <div className="flex flex-col gap-2 sm:items-center sm:justify-center sm:flex-row">
           <div className="min-w-[200px]">
             <p className="text-lg">Question type:</p>
             <GSSelect
@@ -91,7 +91,7 @@ export const SurveyFooter = ({ addQuestion, cancelQuestion }: Props) => {
               value={question.type}
             />
           </div>
-          <div className="flex-1">
+          <div className="sm:flex-1">
             <p className="text-lg">Question title:</p>
             <GSInput
               placeholder="Example: what is your current notice period?"
@@ -122,9 +122,9 @@ export const SurveyFooter = ({ addQuestion, cancelQuestion }: Props) => {
             </>
           )}
         </div>
-        <div className="mt-4 ml-auto flex items-center justify-end w-[320px] gap-4">
-          <GSButton type="submit" label="Save" />
-          <GSButton variant="outlined" label="Cancel" onClick={cancelQuestion} />
+        <div className="mt-4 ml-auto flex sm:flex-row flex-col sm:items-center sm:justify-end sm:w-[320px] gap-4">
+          <GSButton size="large" type="submit" label="Save" />
+          <GSButton size="large" variant="outlined" label="Cancel" onClick={cancelQuestion} />
         </div>
         <div className="mt-4 text-lg text-red-400">{error}</div>
       </form>
@@ -151,7 +151,7 @@ const TextQuestionFooter = ({ setQuestion, question }: TextQuestionProps) => {
   };
 
   return (
-    <div className="flex items-center gap-4 justify-items-center">
+    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-items-center">
       <div>Max length: </div>
       <div>
         <GSInput
