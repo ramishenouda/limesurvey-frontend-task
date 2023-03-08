@@ -10,7 +10,7 @@ import { SurveyQuestion } from './SurveyQuestion';
 
 type Props = {
   survey: Survey;
-  setSurvey: any;
+  setSurvey: React.Dispatch<React.SetStateAction<Survey | undefined>>;
 };
 
 export const SurveyEditor = ({ setSurvey, survey }: Props) => {
@@ -67,9 +67,9 @@ export const SurveyEditor = ({ setSurvey, survey }: Props) => {
     <>
       <div className="container p-1 mx-auto border-solid rounded-md sm:p-4">
         <div className="container mb-2 border-solid rounded-md h-14 w-36">
-          <GSButton onClick={() => setSurvey(null)} label="Go Back" />
+          <GSButton onClick={() => setSurvey(undefined)} label="Go Back" />
         </div>
-        <div className="p-2 bg-blue-300">
+        <div className="p-2 bg-blue-300 rounded-md">
           <SurveyHeader onChange={handleChange} surveyTitle={survey.title} />
           <div className="block mb-2 h-14 sm:hidden">
             <GSButton onClick={() => setShowGroups(!showGroups)} label="Toggle Groups" />
@@ -131,11 +131,15 @@ export const SurveyEditor = ({ setSurvey, survey }: Props) => {
                 <SurveyFooter cancelQuestion={() => setAddingQuestion(false)} addQuestion={addQuestion} />
               ) : (
                 <div className="w-64 mt-10 h-14">
-                  <GSButton
-                    size="large"
-                    onClick={() => setAddingQuestion(true)}
-                    label={`Add ${questionGroup.questions.length ? 'another' : ''} question`}
-                  />
+                  {!questionGroup.title ? (
+                    <p className="text-2xl w-[360px]">Start by adding a question group</p>
+                  ) : (
+                    <GSButton
+                      size="large"
+                      onClick={() => setAddingQuestion(true)}
+                      label={`Add ${questionGroup.questions.length ? 'another' : ''} question`}
+                    />
+                  )}
                 </div>
               )}
             </div>

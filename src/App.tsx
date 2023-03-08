@@ -28,7 +28,7 @@ function App() {
           <SurveyDashboard setUserSurveys={setUserSurveys} setSurvey={setSurvey} surveys={userSurveys} />
         )}
       </div>
-      <div>{survey && <SurveyEditor survey={{ ...survey }} setSurvey={setSurvey} />}</div>
+      <div>{survey && <SurveyEditor survey={survey} setSurvey={setSurvey} />}</div>
     </div>
   );
 }

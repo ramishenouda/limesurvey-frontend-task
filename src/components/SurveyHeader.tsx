@@ -15,6 +15,7 @@ export const SurveyHeader = ({ surveyTitle, onChange }: Props) => {
         type="text"
         onChange={onChange}
         required={true}
+        value={surveyTitle}
       />
     </div>
   );

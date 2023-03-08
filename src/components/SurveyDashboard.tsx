@@ -1,5 +1,4 @@
 import { Survey } from '../shared/interfaces/Survey/Survey.interface';
-import { GSButton } from '../shared/UiComponents/GSButton';
 
 type Props = {
   surveys: Array<Survey>;
@@ -8,17 +7,8 @@ type Props = {
 };
 
 export const SurveyDashboard = ({ surveys, setUserSurveys, setSurvey }: Props) => {
-  const addSurvey = () => {
-    const newSurvey: Survey = { questionGroups: [], title: '' };
-    setUserSurveys([...surveys, newSurvey]);
-    setSurvey(newSurvey);
-  };
-
   return (
     <>
-      <div className="h-20 mb-5 ml-auto w-80">
-        <GSButton onClick={addSurvey} label="Create a new survey" />
-      </div>
       <div className="flex flex-wrap items-center justify-center gap-8 p-4 mx-auto border w-fit">
         {surveys.map((survey) => {
           return (
