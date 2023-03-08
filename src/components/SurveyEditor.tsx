@@ -11,6 +11,7 @@ export const SurveyEditor = (_survey: Survey) => {
   const [questionGroup, setQuestionGroup] = useState<QuestionGroup>({ questions: [] } as any);
   const [survey, setSurvey] = useState<Survey>(_survey);
   const [addingQuestion, setAddingQuestion] = useState(false);
+  const [showGroups, setShowGroups] = useState(false);
 
   useEffect(() => {
     if (survey.questionGroups![0]) {
@@ -39,8 +40,16 @@ export const SurveyEditor = (_survey: Survey) => {
   return (
     <div className="container p-2 mx-auto border-solid">
       <SurveyHeader onChange={handleChange} surveyTitle={survey.title} />
+
+      <div className="block mb-2 h-14 sm:hidden">
+        <GSButton onClick={() => setShowGroups(!showGroups)} label="Toggle Groups" />
+      </div>
       <div className="flex gap-4">
-        <div className="text-lg text-center border min-w-[300px] max-h-[80vh] overflow-y-auto">
+        <div
+          className={`text-lg text-center border w-full sm:w-[300px] max-h-[80vh] overflow-y-auto ${
+            showGroups ? 'block sm:block' : 'hidden sm:block'
+          }`}
+        >
           <h1 className="min-h-[64px] text-2xl flex justify-center items-center">Question Groups</h1>
           <hr />
           {survey.questionGroups?.map((_questionGroup) => {
@@ -57,7 +66,11 @@ export const SurveyEditor = (_survey: Survey) => {
             );
           })}
         </div>
-        <div className="flex-1 p-4 border max-h-[vh] overflow-y-auto">
+        <div
+          className={`flex-1 p-4 border max-h-[80vh] overflow-y-auto ${
+            !showGroups ? 'block sm:block' : 'hidden sm:block'
+          }`}
+        >
           {questionGroup ? (
             <>
               <h1 className="mb-4 text-3xl">{questionGroup.title}</h1>

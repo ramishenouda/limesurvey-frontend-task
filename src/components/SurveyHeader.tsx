@@ -7,7 +7,7 @@ type Props = {
 
 export const SurveyHeader = ({ surveyTitle, onChange }: Props) => {
   return (
-    <div className="w-[300px] mb-2">
+    <div className="sm:w-[300px] mb-2">
       <GSInput
         label="Survey title"
         defaultValue={surveyTitle}
