@@ -1,4 +1,4 @@
-import { Input } from '../shared/UiComponents/Input';
+import { GSInput } from '../shared/UiComponents/GSInput';
 
 type Props = {
   surveyTitle: string;
@@ -8,7 +8,7 @@ type Props = {
 export const SurveyHeader = ({ surveyTitle, onChange }: Props) => {
   return (
     <div className="w-[300px] mb-2">
-      <Input
+      <GSInput
         label="Survey title"
         defaultValue={surveyTitle}
         placeholder="Survey title"

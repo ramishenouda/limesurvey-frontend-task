@@ -13,7 +13,7 @@ type Props = {
   onChange: (event: any) => any;
 };
 
-export const Input = ({
+export const GSInput = ({
   type = 'text',
   variant = 'outlined',
   value,

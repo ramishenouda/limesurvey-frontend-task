@@ -12,7 +12,7 @@ type Props = {
   onChange: (event: any) => any;
 };
 
-export const Select = ({ name, label, value, required = false, onChange, options }: Props) => {
+export const GSSelect = ({ name, label, value, required = false, onChange, options }: Props) => {
   return (
     <>
       <MatSelect

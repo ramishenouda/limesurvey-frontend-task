@@ -9,7 +9,7 @@ type Props = {
   onChange: (event: any) => void;
 };
 
-export const Textarea = ({ rows, name, label, placeholder, required = false, onChange }: Props) => {
+export const GSTextarea = ({ rows, name, label, placeholder, required = false, onChange }: Props) => {
   return (
     <TextField
       rows={rows}

@@ -8,7 +8,7 @@ type Props = {
   onClick?: (event: any) => any;
 };
 
-export const Button = ({ variant = 'contained', type = 'button', size = 'medium', label, onClick }: Props) => {
+export const GSButton = ({ variant = 'contained', type = 'button', size = 'medium', label, onClick }: Props) => {
   return (
     <MatButton type={type} className="h-full" size={size} fullWidth={true} variant={variant} onClick={onClick}>
       {label}

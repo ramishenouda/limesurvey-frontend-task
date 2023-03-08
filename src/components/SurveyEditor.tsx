@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Question } from '../shared/interfaces/Question/Question.interface';
 import { QuestionGroup } from '../shared/interfaces/Question/QuestionGroup.interface';
 import { Survey } from '../shared/interfaces/Survey/Survey.interface';
-import { Button } from '../shared/UiComponents/Button';
+import { GSButton } from '../shared/UiComponents/GSButton';
 import { SurveyFooter } from './SurveyFooter';
 import { SurveyHeader } from './SurveyHeader';
 import { SurveyQuestion } from './SurveyQuestion';
@@ -16,8 +16,6 @@ export const SurveyEditor = (_survey: Survey) => {
     if (survey.questionGroups![0]) {
       setQuestionGroup(survey.questionGroups![0]);
     }
-
-    console.log({ questionGroup });
   }, [survey]);
 
   const handleChange = (event: any) => {
@@ -78,7 +76,7 @@ export const SurveyEditor = (_survey: Survey) => {
             <SurveyFooter cancelQuestion={() => setAddingQuestion(false)} addQuestion={addQuestion} />
           ) : (
             <div className="w-56 mt-10 h-14">
-              <Button
+              <GSButton
                 size="large"
                 variant="outlined"
                 onClick={() => setAddingQuestion(true)}
